@@ -24,7 +24,9 @@ namespace WinChat
         private List<ServerMessage> msgs;
 
         //Фоновый поток для запроса новых сообщений у сервера
-        private Thread RefreshGUI; 
+        private Thread RefreshGUI;
+
+        private int k = 0;
 
         public frmMain()
         {
@@ -125,6 +127,7 @@ namespace WinChat
             txtMessage.Text = "";
 
             ScrollToEnd(rtbChat.Handle, WM_VSCROLL, SB_BOTTOM, 0);
+
         }
 
         private void mExit_Click(object sender, EventArgs e)

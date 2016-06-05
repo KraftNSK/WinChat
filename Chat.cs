@@ -29,7 +29,7 @@ namespace WinChat
             tokenString = "";
             AppPath = "";
             isAuth = false;
-            lastMessageID = 0;
+            lastMessageID = -1;
             errors = new List<string>();
         }
         
@@ -257,7 +257,7 @@ namespace WinChat
                         if (tm != null)
                             if (tm.Count > 0)
                             {
-                                lastMessageID = tm[tm.Count - 1].Id;
+                                if(lastMessageID < tm[tm.Count - 1].Id) lastMessageID = tm[tm.Count - 1].Id;
                                 return tm;
                             }
                         return null;
@@ -346,7 +346,7 @@ namespace WinChat
                         if (tm != null)
                             if (tm.Count > 0)
                             {
-                                lastMessageID = tm[tm.Count - 1].Id;
+                                if(lastMessageID < tm[tm.Count - 1].Id) lastMessageID = tm[tm.Count - 1].Id;
                                 return tm;
                             }
                         return null;
